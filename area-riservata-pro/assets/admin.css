@@ -1,0 +1,804 @@
+/* Area Riservata Admin Styles - Completamente isolati con pulsanti migliorati */
+
+/* Reset generale solo per il nostro plugin */
+.area-riservata-admin * {
+    box-sizing: border-box;
+}
+
+.area-riservata-admin {
+    background: #f8f9fa;
+    margin: 0 -20px -20px -20px;
+    padding: 20px;
+    min-height: calc(100vh - 160px);
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+.area-riservata-admin h1 {
+    color: #1b2341;
+    margin-bottom: 30px;
+    font-size: 28px;
+    font-weight: 600;
+}
+
+/* Navigation Tabs - Solo per il nostro wrapper */
+.area-riservata-admin .nav-tab-wrapper {
+    border-bottom: 1px solid #ddd;
+    margin-bottom: 30px;
+    background: white;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.area-riservata-admin .nav-tab {
+    border: none !important;
+    background: transparent !important;
+    padding: 15px 25px !important;
+    color: #666 !important;
+    text-decoration: none !important;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.area-riservata-admin .nav-tab:hover {
+    background: #f0f0f1 !important;
+    color: #1b2341 !important;
+}
+
+.area-riservata-admin .nav-tab-active {
+    background: #1b2341 !important;
+    color: white !important;
+}
+
+.area-riservata-admin .nav-tab-active::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: #007cba;
+}
+
+/* Tab Content */
+.area-riservata-admin .tab-content {
+    display: none;
+    background: white;
+    border-radius: 12px;
+    padding: 30px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.area-riservata-admin .tab-content.active {
+    display: block;
+    animation: areaRiservataFadeIn 0.3s ease-in-out;
+}
+
+@keyframes areaRiservataFadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Stats Grid */
+.area-riservata-admin .stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    margin-bottom: 40px;
+}
+
+.area-riservata-admin .stat-box {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    padding: 25px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.area-riservata-admin .stat-box:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(102, 126, 234, 0.4);
+}
+
+.area-riservata-admin .stat-box.pending {
+    background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+    box-shadow: 0 4px 15px rgba(240, 147, 251, 0.3);
+}
+
+.area-riservata-admin .stat-box.pending:hover {
+    box-shadow: 0 8px 25px rgba(240, 147, 251, 0.4);
+}
+
+.area-riservata-admin .stat-icon {
+    font-size: 36px;
+    opacity: 0.9;
+}
+
+.area-riservata-admin .stat-content h3 {
+    font-size: 32px;
+    font-weight: bold;
+    margin: 0 0 5px 0;
+}
+
+.area-riservata-admin .stat-content p {
+    margin: 0;
+    opacity: 0.9;
+    font-size: 14px;
+}
+
+/* Section Headers */
+.area-riservata-admin .section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 25px;
+    padding: 20px;
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+    border-radius: 8px;
+    border: 1px solid #e0e0e0;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.area-riservata-admin .section-header h3 {
+    color: #1b2341 !important;
+    margin: 0;
+    font-size: 22px;
+    font-weight: 600;
+}
+
+/* Tables */
+.area-riservata-admin .users-table, 
+.area-riservata-admin .logs-table {
+    background: white;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+
+.area-riservata-admin .users-table .wp-list-table,
+.area-riservata-admin .logs-table .wp-list-table {
+    border: none;
+}
+
+.area-riservata-admin .users-table .wp-list-table th,
+.area-riservata-admin .logs-table .wp-list-table th {
+    background: #1b2341 !important;
+    color: white !important;
+    font-weight: 600;
+    padding: 15px !important;
+    border: none !important;
+}
+
+.area-riservata-admin .users-table .wp-list-table td,
+.area-riservata-admin .logs-table .wp-list-table td {
+    padding: 12px 15px !important;
+    border-bottom: 1px solid #f0f0f1 !important;
+    vertical-align: middle;
+}
+
+.area-riservata-admin .users-table .wp-list-table tr:hover,
+.area-riservata-admin .logs-table .wp-list-table tr:hover {
+    background: #f8f9fa;
+}
+
+/* Status Badges */
+.area-riservata-admin .status-badge {
+    padding: 6px 14px;
+    border-radius: 20px;
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    display: inline-block;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    border: none;
+}
+
+.area-riservata-admin .status-badge.pending {
+    background: linear-gradient(135deg, #fff3cd, #ffeaa7);
+    color: #856404;
+}
+
+.area-riservata-admin .status-badge.approved {
+    background: linear-gradient(135deg, #d1edff, #74b9ff);
+    color: #0c5aa6;
+}
+
+.area-riservata-admin .status-badge.rejected {
+    background: linear-gradient(135deg, #f8d7da, #fd79a8);
+    color: #721c24;
+}
+
+.area-riservata-admin .status-badge.disabled {
+    background: linear-gradient(135deg, #e2e3e5, #b2bec3);
+    color: #6c757d;
+}
+
+.area-riservata-admin .user-type {
+    padding: 4px 12px;
+    border-radius: 15px;
+    font-size: 10px;
+    font-weight: 700;
+    text-transform: uppercase;
+    display: inline-block;
+    letter-spacing: 0.5px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.area-riservata-admin .user-type.progettista {
+    background: linear-gradient(135deg, #e3f2fd, #81d4fa);
+    color: #1976d2;
+}
+
+.area-riservata-admin .user-type.rivenditore {
+    background: linear-gradient(135deg, #f3e5f5, #ce93d8);
+    color: #7b1fa2;
+}
+
+/* PULSANTI MIGLIORATI - Sistema completo */
+
+/* Reset dei pulsanti WordPress per il nostro plugin */
+.area-riservata-admin .button,
+.area-riservata-admin .button-primary,
+.area-riservata-admin .button-secondary {
+    all: unset;
+    box-sizing: border-box;
+}
+
+/* Base button style */
+.area-riservata-admin .button,
+.area-riservata-admin .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 10px 18px;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    font-size: 13px;
+    font-weight: 600;
+    line-height: 1.4;
+    text-decoration: none;
+    border: 2px solid transparent;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    white-space: nowrap;
+    min-height: 38px;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Primary buttons */
+.area-riservata-admin .button-primary,
+.area-riservata-admin .btn-primary {
+    background: linear-gradient(135deg, #1b2341 0%, #2c3e50 100%);
+    color: white;
+    box-shadow: 0 4px 12px rgba(27, 35, 65, 0.3);
+}
+
+.area-riservata-admin .button-primary:hover,
+.area-riservata-admin .btn-primary:hover {
+    background: linear-gradient(135deg, #243049 0%, #34495e 100%);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(27, 35, 65, 0.4);
+    color: white;
+}
+
+.area-riservata-admin .button-primary:active,
+.area-riservata-admin .btn-primary:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 8px rgba(27, 35, 65, 0.3);
+}
+
+/* Success/Approve buttons */
+.area-riservata-admin .approve-user,
+.area-riservata-admin .btn-success {
+    background: linear-gradient(135deg, #28a745 0%, #20c997 100%);
+    color: white;
+    box-shadow: 0 4px 12px rgba(40, 167, 69, 0.3);
+}
+
+.area-riservata-admin .approve-user:hover,
+.area-riservata-admin .btn-success:hover {
+    background: linear-gradient(135deg, #2eb84e 0%, #26d0ce 100%);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(40, 167, 69, 0.4);
+    color: white;
+}
+
+/* Danger/Reject buttons */
+.area-riservata-admin .reject-user,
+.area-riservata-admin .btn-danger,
+.area-riservata-admin .delete-user {
+    background: linear-gradient(135deg, #dc3545 0%, #e74c3c 100%);
+    color: white;
+    box-shadow: 0 4px 12px rgba(220, 53, 69, 0.3);
+}
+
+.area-riservata-admin .reject-user:hover,
+.area-riservata-admin .btn-danger:hover,
+.area-riservata-admin .delete-user:hover {
+    background: linear-gradient(135deg, #e04555 0%, #ec5e50 100%);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(220, 53, 69, 0.4);
+    color: white;
+}
+
+/* Secondary/Toggle buttons */
+.area-riservata-admin .toggle-status,
+.area-riservata-admin .btn-secondary {
+    background: linear-gradient(135deg, #6c757d 0%, #5a6268 100%);
+    color: white;
+    box-shadow: 0 4px 12px rgba(108, 117, 125, 0.3);
+}
+
+.area-riservata-admin .toggle-status:hover,
+.area-riservata-admin .btn-secondary:hover {
+    background: linear-gradient(135deg, #7a838b 0%, #646d75 100%);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(108, 117, 125, 0.4);
+    color: white;
+}
+
+/* Info/View buttons */
+.area-riservata-admin .view-user,
+.area-riservata-admin .btn-info {
+    background: linear-gradient(135deg, #007bff 0%, #0056b3 100%);
+    color: white;
+    box-shadow: 0 4px 12px rgba(0, 123, 255, 0.3);
+}
+
+.area-riservata-admin .view-user:hover,
+.area-riservata-admin .btn-info:hover {
+    background: linear-gradient(135deg, #1a88ff 0%, #1a63c7 100%);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(0, 123, 255, 0.4);
+    color: white;
+}
+
+/* Warning buttons */
+.area-riservata-admin .btn-warning {
+    background: linear-gradient(135deg, #ffc107 0%, #e0a800 100%);
+    color: #212529;
+    box-shadow: 0 4px 12px rgba(255, 193, 7, 0.3);
+}
+
+.area-riservata-admin .btn-warning:hover {
+    background: linear-gradient(135deg, #ffcd3a 0%, #edad0a 100%);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(255, 193, 7, 0.4);
+    color: #212529;
+}
+
+/* Small buttons */
+.area-riservata-admin .button-small,
+.area-riservata-admin .btn-small {
+    padding: 6px 12px !important;
+    font-size: 11px !important;
+    min-height: 30px;
+    gap: 4px;
+}
+
+/* Large buttons */
+.area-riservata-admin .button-large,
+.area-riservata-admin .btn-large {
+    padding: 14px 24px !important;
+    font-size: 15px !important;
+    min-height: 48px;
+    gap: 10px;
+}
+
+/* Icon buttons */
+.area-riservata-admin .button .dashicons,
+.area-riservata-admin .btn .dashicons {
+    font-size: 16px;
+    width: 16px;
+    height: 16px;
+}
+
+.area-riservata-admin .button-small .dashicons {
+    font-size: 14px;
+    width: 14px;
+    height: 14px;
+}
+
+/* Loading state */
+.area-riservata-admin .button:disabled,
+.area-riservata-admin .btn:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+    transform: none !important;
+    box-shadow: none !important;
+}
+
+.area-riservata-admin .button:disabled:hover,
+.area-riservata-admin .btn:disabled:hover {
+    transform: none !important;
+    box-shadow: none !important;
+}
+
+/* Button groups */
+.area-riservata-admin .button-group {
+    display: inline-flex;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+
+.area-riservata-admin .row-actions {
+    display: flex;
+    gap: 6px;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+.area-riservata-admin .row-actions .button,
+.area-riservata-admin .row-actions .btn {
+    padding: 4px 8px !important;
+    font-size: 11px !important;
+    min-height: 26px;
+    gap: 3px;
+}
+
+/* Header actions */
+.area-riservata-admin .header-actions {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.area-riservata-admin .header-actions select,
+.area-riservata-admin .header-actions input {
+    min-height: 38px;
+    padding: 8px 12px;
+    border: 2px solid #e0e0e0;
+    border-radius: 6px;
+    font-size: 13px;
+    transition: border-color 0.3s ease;
+}
+
+.area-riservata-admin .header-actions select:focus,
+.area-riservata-admin .header-actions input:focus {
+    outline: none;
+    border-color: #1b2341;
+    box-shadow: 0 0 0 3px rgba(27, 35, 65, 0.1);
+}
+
+/* Quick actions grid */
+.area-riservata-admin .quick-actions {
+    margin: 30px 0;
+    padding: 25px;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+
+.area-riservata-admin .quick-actions h3 {
+    color: #1b2341;
+    margin: 0 0 20px 0;
+    font-size: 20px;
+    font-weight: 600;
+}
+
+.area-riservata-admin .actions-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 15px;
+}
+
+.area-riservata-admin .action-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 20px;
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+    color: #1b2341;
+    border: 2px solid #e0e0e0;
+    border-radius: 12px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-decoration: none;
+}
+
+.area-riservata-admin .action-btn:hover {
+    background: linear-gradient(135deg, #1b2341 0%, #2c3e50 100%);
+    color: white;
+    border-color: #1b2341;
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(27, 35, 65, 0.2);
+}
+
+.area-riservata-admin .action-btn .dashicons {
+    font-size: 20px;
+    width: 20px;
+    height: 20px;
+}
+
+/* Hover effects migliorati */
+.area-riservata-admin .button:not(:disabled):hover,
+.area-riservata-admin .btn:not(:disabled):hover {
+    color: white;
+    text-decoration: none;
+}
+
+.area-riservata-admin .button:not(:disabled):hover::before,
+.area-riservata-admin .btn:not(:disabled):hover::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: inherit;
+    animation: buttonRipple 0.6s ease-out;
+}
+
+@keyframes buttonRipple {
+    0% {
+        transform: scale(0.8);
+        opacity: 1;
+    }
+    100% {
+        transform: scale(1);
+        opacity: 0;
+    }
+}
+
+/* Focus states per accessibilità */
+.area-riservata-admin .button:focus,
+.area-riservata-admin .btn:focus {
+    outline: 2px solid #007cba;
+    outline-offset: 2px;
+}
+
+/* Responsive design per i pulsanti */
+@media (max-width: 768px) {
+    .area-riservata-admin .header-actions {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 10px;
+    }
+    
+    .area-riservata-admin .header-actions select,
+    .area-riservata-admin .header-actions input,
+    .area-riservata-admin .header-actions .button {
+        width: 100%;
+    }
+    
+    .area-riservata-admin .row-actions {
+        justify-content: flex-start;
+        gap: 4px;
+    }
+    
+    .area-riservata-admin .actions-grid {
+        grid-template-columns: 1fr;
+        gap: 10px;
+    }
+    
+    .area-riservata-admin .action-btn {
+        padding: 15px;
+        font-size: 13px;
+    }
+    
+    .area-riservata-admin .button-group {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 6px;
+    }
+}
+
+@media (max-width: 480px) {
+    .area-riservata-admin .section-header {
+        flex-direction: column;
+        align-items: stretch;
+        text-align: center;
+        gap: 15px;
+    }
+    
+    .area-riservata-admin .row-actions {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+}
+
+/* Documents Grid */
+.area-riservata-admin .documents-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
+}
+
+.area-riservata-admin .document-card {
+    background: white;
+    border: 1px solid #e0e0e0;
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    transition: all 0.3s ease;
+}
+
+.area-riservata-admin .document-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+}
+
+.area-riservata-admin .doc-icon {
+    font-size: 32px;
+    text-align: center;
+    margin-bottom: 15px;
+}
+
+.area-riservata-admin .doc-info h4 {
+    color: #1b2341;
+    margin: 0 0 10px 0;
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.area-riservata-admin .doc-info p {
+    margin: 5px 0;
+    color: #666;
+    font-size: 14px;
+}
+
+.area-riservata-admin .doc-actions {
+    margin-top: 15px;
+    display: flex;
+    gap: 8px;
+}
+
+/* Modal Styles */
+.area-riservata-admin .ar-modal {
+    position: fixed;
+    z-index: 99999;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.5);
+    backdrop-filter: blur(5px);
+}
+
+.area-riservata-admin .ar-modal-content {
+    background-color: white;
+    margin: 5% auto;
+    padding: 30px;
+    border-radius: 12px;
+    width: 90%;
+    max-width: 600px;
+    max-height: 80vh;
+    overflow-y: auto;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.3);
+    position: relative;
+    animation: areaRiservataModalSlideIn 0.3s ease;
+}
+
+@keyframes areaRiservataModalSlideIn {
+    from { opacity: 0; transform: translateY(-50px) scale(0.9); }
+    to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+.area-riservata-admin .ar-modal-close {
+    position: absolute;
+    right: 15px;
+    top: 15px;
+    color: #aaa;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: color 0.3s;
+}
+
+.area-riservata-admin .ar-modal-close:hover {
+    color: #000;
+}
+
+.area-riservata-admin .ar-modal-content h3 {
+    color: #1b2341;
+    margin: 0 0 25px 0;
+    font-size: 24px;
+    font-weight: 600;
+}
+
+/* Form Styles */
+.area-riservata-admin .form-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    margin-bottom: 30px;
+}
+
+.area-riservata-admin .form-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.area-riservata-admin .form-group.full-width {
+    grid-column: 1 / -1;
+}
+
+.area-riservata-admin .form-group label {
+    margin-bottom: 8px;
+    color: #1b2341;
+    font-weight: 500;
+    font-size: 14px;
+}
+
+.area-riservata-admin .form-group input,
+.area-riservata-admin .form-group select {
+    padding: 12px;
+    border: 2px solid #e0e0e0;
+    border-radius: 8px;
+    font-size: 14px;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    font-family: inherit;
+}
+
+.area-riservata-admin .form-group input:focus,
+.area-riservata-admin .form-group select:focus {
+    outline: none;
+    border-color: #1b2341;
+    box-shadow: 0 0 0 3px rgba(27, 35, 65, 0.1);
+}
+
+.area-riservata-admin .form-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+    padding-top: 20px;
+    border-top: 1px solid #e0e0e0;
+}
+
+/* Logs Section */
+.area-riservata-admin .logs-section {
+    margin-top: 40px;
+}
+
+.area-riservata-admin .logs-section h3 {
+    color: #1b2341;
+    margin-bottom: 20px;
+    font-size: 20px;
+    font-weight: 600;
+}
+
+/* Enhanced tooltips */
+.area-riservata-admin .tooltip {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif !important;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15) !important;
+    max-width: 200px;
+    text-align: center;
+}
+
+/* Password strength indicator */
+.area-riservata-admin .password-strength {
+    margin-top: 5px;
+    padding: 5px 10px;
+    border-radius: 4px;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.area-riservata-admin .password-strength.weak {
+    background: #ffebee;
+    color: #c62828;
+}
+
+.area-riservata-admin .password-strength.medium {
+    background: #fff3e0;
+    color: #ef6c00;
+}
+
+.area-riservata-admin .password-strength.strong {
+    background: #e8f5e8;
+    color: #2e7d32;
+}
